@@ -17,33 +17,43 @@
 			</ul>
 		</div>
 
-	<p class="col-md-3"></p>
-	<p class="col-md-6">This project scans Instagram for photos that average people post in a given day and analyzes them
-   	individually, determining how happy or sad they are. Using this determination, we are able to predict
-   	how happy a city will be overall 7 days from now.</p>
-	<p class="col-md-3"></p>
+	<div class="container">
+		<p class="col-md-3"></p>
+		<p class="col-md-6">This project scans Instagram for photos that average people post in a given day and analyzes them
+   		individually, determining how happy or sad they are. Using this determination, we are able to predict
+   		how happy a city will be overall 7 days from now.</p>
+		<p class="col-md-3"></p>
+	</div>
 </div>
 
-<div class="The Program">
+<div class="text-center">
+	<div class="container">
+		<p class="City">Enter a city:</p>
+		<input id="City" type="text">
+		<button type="button" onclick="submitButton()">Submit</button>
+	</div>
+
 	<script>
-		
+	function submitButton(){
+		var x = document.getElementById("City").value;
+		var Cities = ["Tucson", "Phoenix", "New York"];
+
+		if(!inArray(Cities, x)){
+			alert("You picked an invalid City!");
+		}
+	}
+
+	function inArray(a, x){
+		for(var i = 0;i < a.length;i++){
+			if(a[i].localeCompare(x) == 0){
+				return true;
+			}
+		}
+		return false;
+	}
 	</script>
 </div>
 
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
