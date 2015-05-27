@@ -1,0 +1,21 @@
+.main h1 {
+	color: #f99;
+	background-color: #b3a;
+	font-weight: bold;
+	text-align: center;
+}
+
+.main p{
+	text-align: center;
+	font-size: 16px;
+}
+
+.credits li {
+	font-size: 18px;
+	display: inline;
+}
+
+body {
+	background-color: DarkGray;
+}
+

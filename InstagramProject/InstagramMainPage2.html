@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="C:\Users\Jose\Documents\ProgrammingSummer2015\CSS-HTML\Bootstrap\bootstrap.css" rel="stylesheet">
+	<link href="C:\Users\Jose\Documents\ProgrammingSummer2015\CSS-HTML\Programs\InstagramProject\customization.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="main">
+	<h1>How does your city feel?</h1>
+		<div class="credits">
+			<ul class="text-center">
+				<li>By:</li>
+				<li><a href="https://www.linkedin.com/pub/jose-celaya-alcala/a4/aa3/413">Jose Celaya-Alcala</a></li>
+				<li>and </li>
+				<li><a href="#">Joshua Abrams</a></li>
+			</ul>
+		</div>
+
+	<div class="container">
+		<p class="col-md-3"></p>
+		<p class="col-md-6">This project scans Instagram for photos that average people post in a given day and analyzes them
+   		individually, determining how happy or sad they are. Using this determination, we are able to predict
+   		how happy a city will be overall 7 days from now.</p>
+		<p class="col-md-3"></p>
+	</div>
+</div>
+
+<div class="text-center">
+	<div class="container">
+		<p class="City">Enter a city:</p>
+		<select id="City">
+  			<option value="Tucson">Tucson</option>
+  			<option value="Capetown">Capetown</option>
+  			<option value="New York">New York</option>
+  			<option value="Mexico City">Mexico City</option>
+		</select>
+		<button type="button" onclick="submitButton()">Submit</button>
+	</div>
+
+	<script>
+	function submitButton(){
+		var x = document.getElementById("City").value;
+			alert("You picked " + x);
+	}
+
+	function inArray(a, x){
+		for(var i = 0;i < a.length;i++){
+			if(a[i].localeCompare(x) == 0){
+				return true;
+			}
+		}
+		return false;
+	}
+	</script>
+</div>
+
+
+</body>
+</html>
