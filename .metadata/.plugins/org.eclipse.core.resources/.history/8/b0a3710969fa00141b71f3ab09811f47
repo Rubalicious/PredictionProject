@@ -1,0 +1,75 @@
+package View;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import Model.IsingModel;
+
+
+public class CustomJPanel extends JPanel {
+	
+	private static int SIZE = 10;
+	private int frameWidth = 500;
+	private int frameHeight = 450;
+	private IsingModel simulation;
+	private JLabel [][] pixel = new JLabel [SIZE][SIZE];
+	
+	public CustomJPanel(IsingModel sim){
+		simulation = sim;
+		SIZE = 10;//simulation.size();
+		setSize(frameWidth, frameHeight);
+		setLayout(new BorderLayout());
+		setVisible(true);
+		setUpPixels();
+	}
+	
+	private void setUpPixels() {
+		for(int i = 0; i < SIZE; i ++){
+			for(int j = 0; j <SIZE; j++){
+				pixel[i][j] = new JLabel();
+				pixel[i][j].setSize(5,5);
+				//pixel[i][j].setLocation(5*i, 5*j);
+				pixel[i][j].setBackground(Color.BLUE);
+				this.add(pixel[i][j], BorderLayout.CENTER);
+			}
+		}
+		
+	}
+
+	@Override
+	public void paintComponent(Graphics g){
+		Graphics2D g2 = (Graphics2D) g;
+		//[][] color objects
+		for(int i = 0; i < frameWidth; i+=10){
+			for(int j = 0; j <frameHeight; j+=10){
+				int random = (int) Math.random()*2;
+				if(random == 0){
+					g2.setColor(Color.BLUE);
+				}
+				else{
+					g2.setColor(Color.YELLOW);
+				}
+				g2.fillRect(i, j, 10, 10);
+			}
+		}
+		
+
+		
+		
+	}
+	public void step(){
+		int x = (int)(Math.random()*simulation.size());
+		int y = (int)(Math.random()*simulation.size());
+		simulation.acceptDecision(x, y);
+	}
+
+	public static void main (String [] args){
+		//CustomJPanel panel = new CustomJPanel(null);
+	}
+}

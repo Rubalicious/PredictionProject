@@ -1,0 +1,6 @@
+INDEX VERSION 1.127+/Users/rubyabrams/Documents/Github/.metadata/.plugins/org.eclipse.jdt.core
+1101795139.index
+1426838429.index
+3730856331.index
+3899647916.index
+1606964749.index
