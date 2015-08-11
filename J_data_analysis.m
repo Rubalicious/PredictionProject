@@ -6,8 +6,8 @@ table = zeros(40,5);
 %making columns that are: ID, brightness, contrast, range, avg grayness
 
 %reading happiness/sadness folders
-happy = dir('/home/jose/Documents/MATLAB/PredictionProject/picture data/happy*');
-sad   = dir('/home/jose/Documents/MATLAB/PredictionProject/picture data/sad*');
+happy = dir('/Users/rubyabrams/Documents/Github/PredictionProject/picture data/happiness/*');
+sad   = dir('/Users/rubyabrams/Documents/Github/PredictionProject/picture data/sad');
 cd('/home/jose/Documents/MATLAB/PredictionProject/picture data');
 
 H = happy';

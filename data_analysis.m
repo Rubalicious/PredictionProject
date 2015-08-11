@@ -34,6 +34,7 @@ zlabel('range')
 files = dir('picture data/sadness/sad*');
 i = 21;
 for file = files'
+    
     rgb = imread(file.name);
     brightness = mean2(file.name);
     contrast = std2(file.name);    
