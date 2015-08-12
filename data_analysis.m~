@@ -11,8 +11,8 @@ table = getStats(files, i, table);
 figure
 hold on
 scatter3(table(1:20,2), table(1:20,3),table(1:20,4),'*r');
-xlabel('average')
-ylabel('standard deviation')
+xlabel('brightness')
+ylabel('contrast')
 zlabel('range')
 %% sadness
 %reading sadness folder
@@ -23,8 +23,8 @@ table = getStats(files, i, table);
 
 scatter3(table(21:40,2), table(21:40,3), table(21:40,4),'ob');
 hold off
-xlabel('average')
-ylabel('standard deviation')
+xlabel('brightness')
+ylabel()
 %% some ideas
 %notice the difference between average grayness
 figure
