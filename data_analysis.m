@@ -8,21 +8,27 @@ files = dir('picture data/happiness/*.jpg');
 i = 1;
 for file = files'
     rgb = imread(file.name);
+    % averages and standard deviations
     average = mean2(file.name);
     stdev = std2(file.name);
     range = max(file.name)-min(file.name);
     gray = rgb2gray(rgb);
     avggray = mean2(gray);
+    % modes
     graymode = mode(mode(gray));
     rmode = mode(mode(rgb(:,:,1)));
     gmode = mode(mode(rgb(:,:,2)));
     bmode = mode(mode(rgb(:,:,3)));
+    % quantiles
     fvec = quantile(rgb,0.25);
     fquantile = squeeze(quantile(fvec,0.25));
     svec = quantile(rgb,0.5);
     squantile = squeeze(quantile(fvec,0.5));
     tvec = quantile(rgb,0.75);
     tquantile = squeeze(quantile(fvec,0.75));
+    % kurtosis and skewness
+    k = getKurtosis(rgb);
+    s = getSkewness(rgb);
     
     
     %populating table
@@ -40,6 +46,8 @@ for file = files'
     table(i,12) = fquantile(1);         % first quantile
     table(i,13) = squantile(1);         % second quantile (median)
     table(i,14) = tquantile(1);         % third quantile
+    table(i,15) = k;                    % kurtosis
+    table(i,16) = s;                    % skewness
     i = i+1;
 end
 figure
@@ -54,21 +62,27 @@ files = dir('picture data/sadness/sad*');
 i = 21;
 for file = files'
     rgb = imread(file.name);
+    % averages and standard deviations
     average = mean2(file.name);
     stdev = std2(file.name);
     range = max(file.name)-min(file.name);
     gray = rgb2gray(rgb);
     avggray = mean2(gray);
+    % modes
     graymode = mode(mode(gray));
     rmode = mode(mode(rgb(:,:,1)));
     gmode = mode(mode(rgb(:,:,2)));
     bmode = mode(mode(rgb(:,:,3)));
+    % quantiles
     fvec = quantile(rgb,0.25);
     fquantile = squeeze(quantile(fvec,0.25));
     svec = quantile(rgb,0.5);
     squantile = squeeze(quantile(fvec,0.5));
     tvec = quantile(rgb,0.75);
     tquantile = squeeze(quantile(fvec,0.75));
+    % kurtosis and skewness
+    k = getKurtosis(rgb);
+    s = getSkewness(rgb);
     
     
     %populating table
@@ -86,7 +100,8 @@ for file = files'
     table(i,12) = fquantile(1);         % first quantile
     table(i,13) = squantile(1);         % second quantile (median)
     table(i,14) = tquantile(1);         % third quantile
-    i = i+1;
+    table(i,15) = k;                    % kurtosis
+    table(i,16) = s;                    % skewness
 end
 
 scatter3(table(21:40,2), table(21:40,3), table(21:40,4),'ob');
