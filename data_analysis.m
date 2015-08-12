@@ -1,6 +1,5 @@
 %% Read all the pictures into a data space
 
-
 %Make a table of the stats
 table = zeros(40,15);
 %making columns that are: ID, brightness, contrast, range, avg grayness
