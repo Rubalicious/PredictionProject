@@ -7,5 +7,5 @@ function x = getMedian(M)
             i = i+1;
         end
     end
-    x = kurtosis(A);
+    x = median(A);
 end
