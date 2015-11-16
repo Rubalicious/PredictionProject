@@ -4,18 +4,22 @@
 		<item value="500" key="dialogHeight"/>
 		<item value="800" key="dialogWidth"/>
 		<list key="textEntries">
+			<item value="1"/>
 			<item value="3"/>
 			<item value="1"/>
 		</list>
 		<list key="orderedElements">
+			<item value="org.eclipse.ui.console.ConsoleView"/>
 			<item value="openWorkspace"/>
 			<item value="org.eclipse.jdt.ui.PackageExplorer"/>
 		</list>
 		<list key="orderedProviders">
+			<item value="org.eclipse.e4.ui.parts"/>
 			<item value="org.eclipse.ui.actions"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textArray">
+			<item value="cons"/>
 			<item value="switc"/>
 			<item value="swit"/>
 			<item value="switch"/>

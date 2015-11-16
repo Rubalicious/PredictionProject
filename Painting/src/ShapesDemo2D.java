@@ -236,9 +236,9 @@ public class ShapesDemo2D extends JApplet {
         g2.draw(filledPolygon);
         g2.drawString("Filled and Stroked GeneralPath", x, stringY);
     }
- 
+
     public static void main(String s[]) {
-        JFrame f = new JFrame("ShapesDemo2D");
+    	JFrame f = new JFrame("ShapesDemo2D");
         f.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {System.exit(0);}
         });

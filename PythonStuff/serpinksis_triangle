@@ -1,0 +1,63 @@
+import turtle
+import math
+
+bob = turtle.Turtle()
+
+radius = 100
+
+bob.speed(20)
+
+
+#start polygon
+##radius = float(radius)/math.tan(math.radians(30))
+def triangle(tr):
+    bob.forward(tr)
+    bob.left(120)
+    bob.forward(2*tr)
+    bob.left(120)
+    bob.forward(2*tr)
+    bob.left(120)
+    bob.forward(tr)
+
+##triangle(radius)
+##bob.left(60)
+
+def inner_radius(radius):
+    A = radius*0.5
+    return A
+
+def circle_radius(R):
+    float(R)/math.tan(math.radians(30))
+    return R
+##radius = inner_radius(radius)
+##bob.forward(radius)
+##
+##triangle(radius)
+
+def iterations(radius,iterate):
+    R = radius
+    if iterate == 1:
+        print "done"
+    else:
+        R = circle_radius(R)
+        for i in range(iterate):
+            triangle(R)
+            bob.left(60)
+            R = inner_radius(R)
+            bob.forward(R)
+        bob.penup()
+        bob.setposition(-radius,radius)
+        bob.pendown()
+        iterations(radius-radius/2.0, iterate-1)
+
+def simulation(radius, iterate):
+    bob.penup()
+    bob.setposition(0,-radius)
+    bob.pendown()
+    iterations(radius, iterate)
+    
+simulation(100, 9)
+        
+        
+
+turtle.done()
