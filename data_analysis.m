@@ -1,0 +1,45 @@
+%% Read all the pictures into a data space
+
+%Make a table of the stats
+table = zeros(40,16);
+%making columns that are: ID, brightness, contrast, range, avg grayness
+%reading happiness folder
+files = dir('picture data/happiness/*.jpg');
+i = 1;
+table = getStats(files, i, table);
+
+figure
+hold on
+scatter3(table(1:20,2), table(1:20,3),table(1:20,4),'*r');
+xlabel('average')
+ylabel('standard deviation')
+zlabel('range')
+%% sadness
+%reading sadness folder
+files = dir('picture data/sadness/sad*');
+i = 21;
+table = getStats(files, i, table);
+
+
+scatter3(table(21:40,2), table(21:40,3), table(21:40,4),'ob');
+hold off
+xlabel('average')
+ylabel('standard deviation')
+%% some ideas
+%notice the difference between average grayness
+figure
+plot(table(1:20,7))
+hold on
+plot(table(21:40,7))
+xlabel('picture ID')
+ylabel('average grayness')
+legend('happy pictures', 'sad pictures')
+hold off
+%% plot the average of happy pictures and sad pictures
+hold on
+x = 1:20;
+y1 = mean(table(1:20,7));
+scatter(x,y1*ones(20,1),'b*');
+y2 = mean(table(21:40,7));
+scatter(x, y2*ones(20,1),'r');
+hold off
