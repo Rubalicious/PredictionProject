@@ -1,0 +1,29 @@
+{
+  "name": "HouseMates",
+  "version": "0.0.0",
+  "description": "a no-html endpoint to manage hosted POSTGRES database",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "ejs": "2.3.3",
+    "express": "4.13.3",
+    "jsonwebtoken": "^5.4.1",
+    "pg": "^4.4.3"
+  },
+  "engines": {
+    "node": "0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:immense-journey-8803.git" 
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
