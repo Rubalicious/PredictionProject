@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "body-parser": "^1.14.2",
+    "cool-ascii-faces": "~1.3.x",
     "ejs": "2.3.3",
     "express": "4.13.3",
     "jsonwebtoken": "^5.4.1",
+    "mongoose": "^4.3.3",
     "pg": "^4.4.3"
   },
   "engines": {
@@ -18,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@heroku.com:immense-journey-8803.git" 
+    "url": "git@heroku.com:immense-journey-8803.git"
   },
   "keywords": [
     "node",
