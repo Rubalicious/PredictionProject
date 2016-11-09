@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
 # Connect 4 Game
-
+from kivy.app import App
+from kivy.uix.widget import Widget 
 import numpy as np
 import pprint
 import subprocess as sp
 
-class C4Game():
+class C4Game(Widget):
     
     def __init__(self):
         # creating a board
@@ -24,6 +25,16 @@ class C4Game():
             print
         print '\t-------------\n'
         print "\tBoard move: %d \n"% self.move_count
+
+    def on_touch_down(self, touch):
+        print touch
+        # find locations of touch.x in the seven columns
+        if touch.x < self.center:
+            print 'left side'
+
+    # used for updating animation in the App
+    def update(self, dt):
+        pass
 
     def move_sequence(self, sequence):
         for x in sequence:
@@ -92,7 +103,9 @@ class C4Game():
         
         return won        
         
-                
+class C4App(App):
+    def build(self):
+        return C4Game()       
 
 def main():
     game = C4Game()
@@ -151,4 +164,5 @@ def main():
     print "Game Over! Player %d won!"%game.current_player
 
 if __name__ == '__main__':
-    main()
+    # main()
+    C4App().run()

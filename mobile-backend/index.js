@@ -12,46 +12,30 @@ var config = require('./config');
  *
  */
 
-var conString = process.env.ELEPHANTSQL_URL || "postgres://postgres:5432@localhost/postgres";
-
-var client = new pg.Client(conString);
-client.connect(function(err) {
-  if(err) {
-    return console.error('could not connect to postgres', err);
-  }
-  client.query('SELECT NOW() AS "theTime"', function(err, result) {
-    if(err) {
-      return console.error('error running query', err);
-    }
-    console.log(result.rows[0].theTime);
-    //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
-    client.end();
-  });
-});
-
 // create a client connection
-// var client={};
-// var pg_connect_local = function () {  
-//     pg.connect(config.local_db(process.argv[2]), function(err, body) {
-//         if(err) {
-//             console.log(err);
-//             console.log(body);
-//             console.log("Local connection failed. Make sure the startup script is being invoked with the port of your DB"); 
-//             client = {warning:"faulty"};
-//         }
-//         else {
-//             client = body;
-//             console.log("Connected to local database");
-//         }
-//         console.log(process.argv[0]);
-//     });
-// };
+var client={};
+var pg_connect_local = function () {  
+    pg.connect(config.local_db(process.argv[2]), function(err, body) {
+        if(err) {
+            console.log(err);
+            console.log(body);
+            console.log("Local connection failed. Make sure the startup script is being invoked with the port of your DB"); 
+            client = {warning:"faulty"};
+        }
+        else {
+            client = body;
+            console.log("Connected to local database");
+        }
+        console.log(process.argv[0]);
+    });
+};
+
 // connect to the remote databse if the url is available
 if(process.env.DATABASE_URL) {
     pg.connect(process.env.DATABASE_URL, function(err, cl) {
         if (err) {
             console.log("Error in remote connection. Attempting local connection");
-            // pg_connect_local();
+            pg_connect_local();
             
         }
         else {
@@ -69,7 +53,7 @@ else pg_connect_local();
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 5000;
 
 // authentication middleware to attach object to request
 var authenticate = function(req,res,next) {
@@ -118,9 +102,7 @@ app.get('/db', function (request, response) {
     });
   });
 });
-app.get('/test', function(req, res){
-    res.send('header', {header: 'heading'})
-});
+
 
 // an example of using a router to control a collection of routes
 var secure = express.Router();

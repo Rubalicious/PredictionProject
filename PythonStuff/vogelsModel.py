@@ -1,8 +1,6 @@
 import turtle
-
-bob = turtle.Turtle()
-
-bob.speed(10)
+# import pdb
+# pdb.set_trace()
 
 def fib(n):
     if n == 0:
@@ -12,26 +10,33 @@ def fib(n):
     else:
         return fib(n-1)+fib(n-2)
 
-theta = 137.508
-a = 1
-b = 1
-c = 1
-#radius = c*theta**0.5
+def main():
+    bob = turtle.Turtle()
 
-for r in range(500):
-    radius = a + b*r**(1/c)
-    red = r/500.0
-    gre = r/500.0
-    blu = r/500.0
-    if r%3 == 0:
-        bob.pencolor((1-red,1-gre,0))
-    elif r%3 == 1:
-        bob.pencolor((1,1,0))
-    else:
-        bob.pencolor((1,gre,blu))
-    bob.dot()
-    bob.penup()
-    bob.left(theta)
-    bob.forward(radius)
+    bob.speed(20)
 
-turtle.done()
+    theta = 137.508
+    a = 1
+    b = 1
+    c = 1
+    #radius = c*theta**0.5
+
+    for r in range(500):
+        radius = a + b*r**(1/c)
+        # red = r/500.0
+        # gre = r/500.0
+        # blu = r/500.0
+        # if r%3 == 0:
+        #     bob.pencolor((1,1-gre,0))
+        # elif r%3 == 1:
+        #     bob.pencolor((1,1,0))
+        # else:
+        #     bob.pencolor((1,gre,blu))
+        bob.dot()
+        bob.penup()
+        bob.left(theta)
+        bob.forward(radius)
+
+    turtle.done()
+
+main()

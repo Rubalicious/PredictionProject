@@ -1,0 +1,50 @@
+#:kivy 1.0.9
+
+<Circles>:
+    size: 50, 50
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<Columns>:
+    size: root.width / 7, root.height
+    canvas:
+        Rectangle:
+            pos:self.pos
+            size:self.size
+
+<C4Game>:    
+    canvas:
+        Rectangle:
+            pos: self.center_x - 5, 0
+            size: 10, self.height
+        Rectangle:
+            pos: root.width/4-5, 0
+            size: 10, self.height
+            
+    Label:
+        font_size: 70  
+        center_x: root.width / 4
+        top: root.top - 50
+        text: "0"
+        
+    Label:
+        font_size: 70  
+        center_x: root.width * 3 / 4
+        top: root.top - 50
+        text: "0"
+
+    Circles:
+        id: random_circle
+        center: self.parent.center
+
+    Columns:
+        id: col_1
+        x: root.x
+        center_y: root.center_y
+
+    Columns:
+        id: col_2
+        x: root.x + root.width / 7
+        center_y: root.center_y

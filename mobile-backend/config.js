@@ -9,6 +9,6 @@
 module.exports = {
     secret: "Coke on a summer day",
     local_db: function(port) {
-        return "postgres://localhost:"+port;
+        return "postgres://username:password@localhost/"+port;
     },
 }
